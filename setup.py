@@ -4,7 +4,7 @@ from setuptools import setup
 setup(
 	name = 'radikorec',
 	version = '1.0',
-	description = 'Radiko recorder',
+	description = 'A Simple Radiko Recorder',
 	author = 'Akira Hayakawa',
 	author_email = 'ruby.wktk@gmail.com',
 	scripts = [

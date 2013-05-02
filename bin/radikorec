@@ -5,11 +5,11 @@ import commands
 from argparse import ArgumentParser
 
 global args
-LOGFILE = "/var/log/radikorec.log"
 
 def P(msg):
-	f = open(LOGFILE, "w+")
-	f.write(msg)
+	LOGFILE = "/tmp/radikorec.log"
+	f = open(LOGFILE, "a")
+	f.write(str(msg) + "\n")
 	f.close
 	
 	if args.debug:
@@ -34,11 +34,13 @@ args = parser.parse_args()
 
 duration_sec = 60 * args.duration + 30
 if args.test:
-	duration_sec = 60
+	duration_sec = 15
 
-P(args)
+P("\n--**-- %s --**--" % commands.getoutput("date -u"))
 
 date = commands.getoutput("TZ=JST-9 date +'%Y-%m-%d-%H-%M'")
+P(args)
+
 filename = "/".join( [args.directory, "%s-%s.m4a" % (args.prefix, date)] ) 
 
 if args.test:
@@ -47,7 +49,7 @@ if args.test:
 P(filename)
 
 CHANNEL_MAP = { 
-	"FM" : ("fm", 63343), 
+	"FM"   : ("fm", 63343), 
 	"NHK1" : ("r1", 63346), 
 	"NHK2" : ("r2", 63342),
 }
@@ -69,7 +71,7 @@ command1 = """
 --live \
 -o %s \
 --stop %d
-""" % (args.rtmpbin, chan, chan.upper(), dial, filename, duration_sec)
+""".strip() % (args.rtmpbin, chan, chan.upper(), dial, filename, duration_sec)
 
 P(command1)
 r = R(command1)
@@ -79,7 +81,7 @@ if r > 0:
 
 # fix the file
 R("mv %s %s.raw" % (filename, filename))
-command2 = "ffmpeg -i %s.raw -acodec copy %s" % (filename, filename)
+command2 = "ffmpeg -i %s.raw -acodec copy %s".strip() % (filename, filename)
 P(command2)
 
 r = R(command2)
