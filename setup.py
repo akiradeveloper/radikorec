@@ -10,6 +10,8 @@ setup(
 	scripts = [
 		'bin/radikorec',
 	],
+	package_dir = {'':'lib'},
+	packages = [''],
 	install_requires = [
 		'argparse >= 1.2',
 	],
