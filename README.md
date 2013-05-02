@@ -2,13 +2,14 @@
 A Simple Radiko Recorder
 
 ## Install
-`pip install radikorec` or  
-`make install` 
+`make install` or  
+<strike>`pip install radikorec`</strike>
 
 ## Test
-First, run with `--test` flag to see it works.  
-Start recording streaming for 15 second and store it as /tmp/RADIKOREC.m4a
-is the right behavior otherwise check for /tmp/radikorec.log
+First, run with `--test` flag to see if it works.  
+Starts to record streaming for 15 second and stores it as /tmp/RADIKOREC.m4a
+is the right behavior  
+otherwise check for /tmp/radikorec.log
 which might help you.  
 Any question will be welcome. Feel free to e-mail me. 
 
