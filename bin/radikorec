@@ -1,0 +1,89 @@
+#!/usr/bin/env python
+
+import os
+import commands
+from argparse import ArgumentParser
+
+global args
+LOGFILE = "/var/log/radikorec.log"
+
+def P(msg):
+	f = open(LOGFILE, "w+")
+	f.write(msg)
+	f.close
+	
+	if args.debug:
+		print(msg)
+
+def R(command):
+	if args.dry_run:
+		return os.system(command)
+
+parser = ArgumentParser(description="A Simple Radiko Recorder")
+
+parser.add_argument('--duration', type=int, default=1, help="time(min) to record. default(1)")
+parser.add_argument('--prefix', default='RADIKOREC', help="filename prefix. default(RADIKOREC)")
+parser.add_argument('--rtmpbin', default='rtmpdump', help="The path for rtmpdump binary >= 2.4. default(rtmpdump)")
+parser.add_argument('--channel', default='FM', help="FM|NHK1|NHK2. default(FM)")
+parser.add_argument('--directory', default='/tmp', help="output directory. default(/tmp)")
+parser.add_argument('--test', action='store_true', default=False, help="set test parameters.")
+parser.add_argument('--debug', action='store_true', default=False, help="print messages on console.")
+parser.add_argument('--dry-run', action='store_true', default=False, help="don't actually execute")
+
+args = parser.parse_args()
+
+duration_sec = 60 * args.duration + 30
+if args.test:
+	duration_sec = 60
+
+P(args)
+
+date = commands.getoutput("TZ=JST-9 date +'%Y-%m-%d-%H-%M'")
+filename = "/".join( [args.directory, "%s-%s.m4a" % (args.prefix, date)] ) 
+
+if args.test:
+	filename = "/tmp/RADIKOREC.m4a"
+
+P(filename)
+
+CHANNEL_MAP = { 
+	"FM" : ("fm", 63343), 
+	"NHK1" : ("r1", 63346), 
+	"NHK2" : ("r2", 63342),
+}
+
+if not CHANNEL_MAP.has_key(args.channel):
+	P("invalid channel name")
+	exit(1)
+
+chan, dial = CHANNEL_MAP[args.channel]
+P((chan, dial))
+
+# make m4a file
+command1 = """
+%s \
+--rtmp "rtmpe://netradio-%s-flash.nhk.jp" \
+--playpath 'NetRadio_%s_flash@%d' \
+--app "live" \
+-W http://www3.nhk.or.jp/netradio/files/swf/rtmpe.swf \
+--live \
+-o %s \
+--stop %d
+""" % (args.rtmpbin, chan, chan.upper(), dial, filename, duration_sec)
+
+P(command1)
+r = R(command1)
+if r > 0:
+	P("ERROR command1")
+	exit(1)
+
+# fix the file
+R("mv %s %s.raw" % (filename, filename))
+command2 = "ffmpeg -i %s.raw -acodec copy %s" % (filename, filename)
+P(command2)
+
+r = R(command2)
+if r > 0:
+	P("ERROR command2")
+
+R("rm %s.raw" % filename)
