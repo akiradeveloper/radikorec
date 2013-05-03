@@ -1,26 +1,16 @@
 # radikorec
 A Simple Radiko/Radiru Recorder
 
-## Usage
-Simple interface.
+## Example
+The command below nicely helps you learn english. Enjoy!
 
-> usage: radikorec [-h] [--duration DURATION] [--prefix PREFIX]
->                  [--rtmpbin RTMPBIN] [--channel CHANNEL]
->                  [--directory DIRECTORY] [--test] [--debug] [--dry-run]
-> 
-> A Simple Radiko Recorder
-> 
-> optional arguments:
->   -h, --help            show this help message and exit
->   --duration DURATION   time(min) to record. default(1)
->   --prefix PREFIX       filename prefix. default(RADIKOREC)
->   --rtmpbin RTMPBIN     The path for rtmpdump binary >= 2.4. default(rtmpdump)
->   --channel CHANNEL     FM|NHK1|NHK2. default(FM)
->   --directory DIRECTORY
->                         output directory. default(/tmp)
->   --test                set test parameters.
->   --debug               print messages on console.
->   --dry-run             don't actually execute
+```
+radikorec 
+--channel NHK2 
+--duration 15 
+--prefix BUSINESS_ENGLISH 
+--directory /home/akira/radio
+```
 
 ## Install
 `make install` or  
