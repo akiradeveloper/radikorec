@@ -41,7 +41,7 @@ class Config:
 			return os.system(command)
 
 if __name__ == '__main__':
-	parser = ArgumentParser(description="A Simple Radiko Recorder")
+	parser = ArgumentParser(description="A Simple Radiko/Radiru Recorder")
 	
 	parser.add_argument('--duration', type=int, default=1, help="time(min) to record. default(1)")
 	parser.add_argument('--prefix', default='RADIKOREC', help="filename prefix. default(RADIKOREC)")
