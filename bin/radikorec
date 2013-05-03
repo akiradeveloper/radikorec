@@ -60,9 +60,10 @@ if __name__ == '__main__':
 	# make m4a file
 	command1 = None
 	if radiru.CHANNEL_MAP.has_key(args.channel):
+		config.P("use RADIRU")
 		command1 = radiru.getCommand1(config)
-		
-	if radiko.CHANNEL_MAP.has_key(args.channel):
+	else:		
+		config.P("use RADIKO")
 		command1 = radiko.getCommand1(config)
 		
 	if command1 is None:
