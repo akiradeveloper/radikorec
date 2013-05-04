@@ -156,21 +156,6 @@ wget \
 	
 	config.R("rm %s" % xmlFile)
 
-#	command = """ \
-#%s \
-#--rtmp %s \
-#--app %s \
-#--playpath %s \
-#-W %s \
-#-C S:"" -C S:"" -C S:"" -C S:%s \
-#--live \
-#-o %s \
-#--stop %d \
-#""".strip() % (
-#		config.args.rtmpbin,
-#		"%s://%s" % (A, B), C, D,
-#		playerurl, authtoken, config.filename, config.duration_sec)
-
 	command = """ \
 %s \
 --rtmp %s \
