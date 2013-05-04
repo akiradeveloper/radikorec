@@ -16,8 +16,8 @@ radikorec
 * ffmpeg   
 
 ## Install
-`make install` or  
-`pip install radikorec` (not available right now)
+`pip install radikorec` or  
+`make install`
 
 There are few programs you may have to build by yourself.  
 Assume we install the programs under /usr/local with default prefix.
