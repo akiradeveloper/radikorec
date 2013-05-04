@@ -46,9 +46,9 @@ if __name__ == '__main__':
 	parser.add_argument('--duration', type=int, default=1, help="time(min) to record. default(1)")
 	parser.add_argument('--prefix', default='RADIKOREC', help="filename prefix. default(RADIKOREC)")
 	parser.add_argument('--rtmpbin', default='rtmpdump', help="The path for rtmpdump binary >= 2.4. default(rtmpdump)")
-	parser.add_argument('--channel', default='FM', help="FM|NHK1|NHK2. default(FM)")
+	parser.add_argument('--channel', default='RN1', help="default(RN1)")
 	parser.add_argument('--directory', default='/tmp', help="output directory. default(/tmp)")
-	parser.add_argument('--test', action='store_true', default=False, help="set test parameters.")
+	parser.add_argument('--test', action='store_true', default=False)
 	parser.add_argument('--debug', action='store_true', default=False, help="print messages on console.")
 	parser.add_argument('--dry-run', action='store_true', default=False, help="don't actually execute")
 	
