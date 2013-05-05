@@ -1,0 +1,13 @@
+#!/bin/sh
+tar xvfz swftools-2013-04-09-1007.tar.gz
+cd swftools-2013-04-09-1007
+pwd
+./configure --prefix=/usr/local;
+make
+cd -
+
+git clone https://github.com/svnpenn/rtmpdump.git
+cd rtmpdump
+pwd
+make SYS=posix	
+cd -

@@ -12,16 +12,12 @@ class Config:
 		self.args = args	
 
 		self.duration_sec = 60 * args.duration + 30
-		if args.test:
-			self.duration_sec = 5
 		
 		self.P("\n--**-- %s --**--" % commands.getoutput("date -u"))
 		
 		date = commands.getoutput("TZ=JST-9 date +'%Y-%m-%d-%H-%M'")
 		
 		self.filename = "/".join( [args.directory, "%s-%s.m4a" % (args.prefix, date)] ) 
-		if args.test:
-			self.filename = "/tmp/RADIKOREC.m4a"
 		self.P(self.filename)
 		
 	def P(self, msg):
@@ -48,7 +44,6 @@ if __name__ == '__main__':
 	parser.add_argument('--rtmpbin', default='rtmpdump', help="The path for rtmpdump binary >= 2.4. default(rtmpdump)")
 	parser.add_argument('--channel', default='RN1', help="default(RN1)")
 	parser.add_argument('--directory', default='/tmp', help="output directory. default(/tmp)")
-	parser.add_argument('--test', action='store_true', default=False)
 	parser.add_argument('--debug', action='store_true', default=False, help="print messages on console.")
 	parser.add_argument('--dry-run', action='store_true', default=False, help="don't actually execute")
 	

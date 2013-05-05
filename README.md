@@ -16,26 +16,15 @@ radikorec
 * ffmpeg   
 
 ## Install
-`pip install radikorec` or  
-`make install`
+`make install`(recommended) or `pip install radikorec`.
 
 There are few programs you may have to build by yourself.  
-Assume we install the programs under /usr/local with default prefix.
-### rtmpdump
-1. `git clone https://github.com/svnpenn/rtmpdump.git`  
-2. `make SYS=posix`  
-3. `make install`  
-4. Don't forget to add /usr/local/lib to LD_LIBRARY_PATH
-
-### swftools
-1. Decompress the accompanying archive file.  
-2. Do just the ordinary build procedure. `./configure`, `make` and `make install`.
+run `./compile` and then `./setup`.  
 
 ## Test
-First, run with `--test` flag to see if it works.  
-Starts to record streaming for 5 second and stores it as /tmp/RADIKOREC.m4a
-is the correct behavior.  
-Otherwise, check for /tmp/radikorec.log which might help you.  
+First, `./runtest` to see if it works.  
+Starts to record streaming for 1 minute and stores it in /tmp is the correct behavior.  
+Check for /tmp/radikorec.log which might help you.  
 Any question will be welcome. Feel free to e-mail me (Japanese OK).
 
 ## Author

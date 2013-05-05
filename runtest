@@ -1,0 +1,5 @@
+#!/bin/sh
+LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH
+radikorec --channel=NHK2 --duration=1 --debug
+radikorec --channel=RN2 --duration=1 --debug

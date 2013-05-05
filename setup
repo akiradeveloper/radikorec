@@ -1,0 +1,9 @@
+#!/bin/sh
+cd swftools-2013-04-09-1007
+make install
+cd -
+
+cd rtmpdump
+make install
+cd -
+install radikorec --mode=755 /usr/bin
