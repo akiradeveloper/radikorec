@@ -28,7 +28,7 @@ Starts to record streaming for 1 minute and stores it in /tmp is the correct beh
 Check for /tmp/radikorec.log which might help you.  
 Any question will be welcome. Feel free to e-mail me (Japanese OK).
 
-# Claim
+## Claim
 Don't share the downloaded files with other persons.  
 This program is only for self-use.
 
