@@ -2,7 +2,7 @@
 A Simple Radiko/Radiru Recorder
 
 ## Example
-The command below nicely helps you learn english. Enjoy!
+The command below nicely helps you learn English. Enjoy your life!
 ```
 radikorec 
 --channel=NHK2 
@@ -10,6 +10,7 @@ radikorec
 --prefix=BUSINESS_ENGLISH 
 --directory=/home/akira/radio
 ```
+
 ## Dependencies
 * [rtmpdump](https://github.com/svnpenn/rtmpdump) >= 2.4  
 * [swftools](http://www.swftools.org/download.html)  
@@ -26,6 +27,10 @@ First, `./runtest` to see if it works.
 Starts to record streaming for 1 minute and stores it in /tmp is the correct behavior.  
 Check for /tmp/radikorec.log which might help you.  
 Any question will be welcome. Feel free to e-mail me (Japanese OK).
+
+# Claim
+Don't share the downloaded files with other persons.  
+This program is only for self-use.
 
 ## Author
 Akira Hayakawa (@akiradeveloper)  
