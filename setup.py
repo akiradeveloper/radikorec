@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
 	name = 'radikorec',
-	version = '1.0',
+	version = '1.1',
 	description = 'A Simple Radiko/Radiru Recorder',
 	author = 'Akira Hayakawa',
 	author_email = 'ruby.wktk@gmail.com',
