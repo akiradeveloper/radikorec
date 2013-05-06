@@ -17,13 +17,13 @@ radikorec
 * ffmpeg   
 
 ## Install
-`make install`(recommended) or `pip install radikorec`.
+`#make install`(recommended) or `#pip install radikorec`.
 
 There are few programs you may have to build by yourself.  
-run `./compile` and then `./setup`.  
+run `$./compile` and then `#./setup`.  
 
 ## Test
-First, `./runtest` to see if it works.  
+First, `$./runtest` to see if it works.  
 Starts to record streaming for 1 minute and stores it in /tmp is the correct behavior.  
 Check for /tmp/radikorec.log which might help you.  
 Any question will be welcome. Feel free to e-mail me (Japanese OK).
