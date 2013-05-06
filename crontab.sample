@@ -1,15 +1,16 @@
 CRON_TZ="Japan"
 STORAGE=/home/akira/radio
+CMD=/usr/local/bin/radikorec_wrapper --directory=$STORAGE
 
 00 * * * * ntpdate -q ntp.nict.jp 
 
-40 12 * * 3-5 /usr/bin/radikorec --prefix=SUGITA_BUSI_ENG --duration=15 --directory=$STORAGE --channel=NHK2
-45 6 * * 1-5 /usr/bin/radikorec --prefix=TOYAMA_TALK_ENG --duration=15 --directory=$STORAGE --channel=NHK2
-40 12 * * 0,6 /usr/bin/radikorec --prefix=SHIBAHARA_LISTEN_ENG --duration=15 --directory=$STORAGE --channel=NHK2
-50 22 * * 0 /usr/bin/radikorec --prefix=HARUKI_MURAKAMI_ENG --duration=30 --directory=$STORAGE --channel=NHK2
-00 6 * * 1-5 /usr/bin/radikorec --prefix=PRIMARY1_ENG --duration=15 --directory=$STORAGE --channel=NHK2
-15 6 * * 1-5 /usr/bin/radikorec --prefix=PRIMARY2_ENG --duration=15 --directory=$STORAGE --channel=NHK2
-30 6 * * 1-5 /usr/bin/radikorec --prefix=PRIMARY3_ENG --duration=15 --directory=$STORAGE --channel=NHK2
-40 12 * * 1-2 /usr/bin/radikorec --prefix=SEKIYA_INTRO_BUSI_ENG --duration=15 --directory=$STORAGE --channel=NHK2
-15 13 * * 1-5 /usr/bin/radikorec --prefix=SAM_ONEPOINT_ENG --duration=5 --directory=$STORAGE --channel=NHK2
-30 8 * * 1-5 /usr/bin/radikorec --prefix=STEVE_TIMETRIAL_ENG --duration=10 --directory=$STORAGE --channel=NHK2
+40 12 * * 3-5 $CMD --prefix=SUGITA_BUSI_ENG --duration=15 --channel=NHK2
+45 6 * * 1-5 $CMD --prefix=TOYAMA_TALK_ENG --duration=15 --channel=NHK2
+40 12 * * 0,6 $CMD --prefix=SHIBAHARA_LISTEN_ENG --duration=15 --channel=NHK2
+50 22 * * 0 $CMD --prefix=HARUKI_MURAKAMI_ENG --duration=30 --channel=NHK2
+00 6 * * 1-5 $CMD --prefix=PRIMARY1_ENG --duration=15 --channel=NHK2
+15 6 * * 1-5 $CMD --prefix=PRIMARY2_ENG --duration=15 --channel=NHK2
+30 6 * * 1-5 $CMD --prefix=PRIMARY3_ENG --duration=15 --channel=NHK2
+40 12 * * 1-2 $CMD --prefix=SEKIYA_INTRO_BUSI_ENG --duration=15 --channel=NHK2
+15 13 * * 1-5 $CMD --prefix=SAM_ONEPOINT_ENG --duration=5 --channel=NHK2
+30 8 * * 1-5 $CMD --prefix=STEVE_TIMETRIAL_ENG --duration=10 --channel=NHK2

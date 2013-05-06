@@ -6,4 +6,5 @@ cd -
 cd rtmpdump
 make install
 cd -
-install radikorec --mode=755 /usr/bin
+
+install radikorec_wrapper --mode=755 /usr/local/bin
