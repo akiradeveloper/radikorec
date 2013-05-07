@@ -81,7 +81,7 @@ if __name__ == '__main__':
 	# fix the file
 	config.R("mv %s %s.raw" % (config.filename, config.filename))
 
-	command2 = "ffmpeg -i %s.raw -acodec copy %s".strip() % (config.filename, config.filename)
+	command2 = "ffmpeg -t %d -i %s.raw -acodec copy %s".strip() % (config.duration_sec, config.filename, config.filename)
 	r = config.R(command2)
 	if r is not 0:
 		config.P("ERROR command2 %d" % r)
